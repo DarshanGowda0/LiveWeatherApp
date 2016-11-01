@@ -20,21 +20,21 @@ class CurrentWeather{
         if _cityName == nil{
             _cityName = ""
         }
-        return _cityName
+        return _cityName!
     }
     
     var weatherType :String {
         if _weatherType == nil{
             _weatherType = ""
         }
-        return _weatherType
+        return _weatherType!
     }
     
     var currentTemp : Double{
         if _currentTemp == nil {
             _currentTemp = 0.0
         }
-        return _currentTemp
+        return _currentTemp!
     }
     
     var date : String {
@@ -49,18 +49,41 @@ class CurrentWeather{
         let currentDate = dateformatter.string(from: Date())
         self._date = "Today \(currentDate)"
         
-        return _date
+        return _date!
     }
     
-    func downloadWeatherDetails(completed : DownloadComplete){
+    func downloadWeatherDetails(completed : @escaping DownloadComplete){
         
         let currentWeatherUrl = URL(string: CURRENT_WEATHER_URL)!
         print(CURRENT_WEATHER_URL)
         Alamofire.request(currentWeatherUrl).responseJSON{ response in
-//            let result  = response.result
-            print(response)
+            let result  = response.result
+            
+            if let dict = result.value as? Dictionary<String,AnyObject>{
+                
+                if let name = dict["name"] as? String{
+                    self._cityName = name.capitalized
+                }
+                
+                if let weather = dict["weather"] as? [Dictionary<String,AnyObject>]{
+                    if let main = weather[0]["main"] as? String{
+                        self._weatherType = main.capitalized
+                    }
+                }
+                
+                if let main = dict["main"] as? Dictionary<String,AnyObject>{
+                    if let temp = main["temp"] as? Double{
+                        let kelvinToFarenheit = (temp*(9/5)-459.67)
+                        let temp2 = Double(round(10*kelvinToFarenheit/10))
+                        self._currentTemp = temp2
+                    }
+                }
+                
+                print("\(self._cityName!) \(self._weatherType!) \(self._currentTemp!)")
+                
+            }
+            completed()
         }
-        completed()
     }
     
 }

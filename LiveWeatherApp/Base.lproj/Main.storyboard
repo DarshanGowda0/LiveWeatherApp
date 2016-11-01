@@ -26,7 +26,7 @@
                                         <color key="textColor" white="0.9521484375" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80 ℃" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXi-5B-d3a">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80 ℃" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXi-5B-d3a">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="JWn-Y6-3qy"/>
                                             <constraint firstAttribute="height" constant="120" id="g9e-YR-jWc"/>
@@ -35,7 +35,7 @@
                                         <color key="textColor" white="0.9521484375" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bangalore, India" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vK8-Cd-dx5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bangalore, India" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vK8-Cd-dx5">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="160" id="D2l-MK-TTb"/>
                                         </constraints>
@@ -51,7 +51,7 @@
                                         <color key="textColor" white="0.9521484375" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xLA-gX-qec">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xLA-gX-qec">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="NYx-Db-MvW"/>
                                             <constraint firstAttribute="height" constant="120" id="QOz-uL-66O"/>
@@ -77,7 +77,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="80" id="Ndg-pZ-Hll">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="80" id="Ndg-pZ-Hll" customClass="WeatherCell" customModule="LiveWeatherApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ndg-pZ-Hll" id="DjJ-G2-fI0">
@@ -86,7 +86,7 @@
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="N5a-Qr-3gf">
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3QC-O6-w8N">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3QC-O6-w8N">
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="60" id="mha-rx-oEn"/>
                                                                 <constraint firstAttribute="height" constant="60" id="q1h-9F-yfB"/>
@@ -145,6 +145,14 @@
                                                 <constraint firstItem="N5a-Qr-3gf" firstAttribute="leading" secondItem="DjJ-G2-fI0" secondAttribute="leadingMargin" id="E5j-a1-ndE"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="dayLabel" destination="dgj-Fk-BH0" id="HKD-Jx-Mjp"/>
+                                            <outlet property="highTempLabel" destination="l1A-Gb-9To" id="3iK-xk-nq6"/>
+                                            <outlet property="lowTempLabel" destination="khi-A7-lfc" id="z7q-Mh-TQE"/>
+                                            <outlet property="weatherIcon" destination="3QC-O6-w8N" id="fzt-ve-fOv"/>
+                                            <outlet property="weatherTypeLabel" destination="ZmB-Jr-kZ4" id="JHl-XJ-a4S"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

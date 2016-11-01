@@ -14,6 +14,8 @@
 		7D178C9E1DC8CEA7007D5863 /* LiveWeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D178C9C1DC8CEA7007D5863 /* LiveWeatherApp.xcdatamodeld */; };
 		7D178CA01DC8CEA7007D5863 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D178C9F1DC8CEA7007D5863 /* Assets.xcassets */; };
 		7D178CA31DC8CEA7007D5863 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D178CA11DC8CEA7007D5863 /* LaunchScreen.storyboard */; };
+		7D2B1A8F1DC8E3A800DFFAD7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2B1A8E1DC8E3A800DFFAD7 /* Constants.swift */; };
+		7D2B1A911DC8E3FF00DFFAD7 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2B1A901DC8E3FF00DFFAD7 /* CurrentWeather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		7D178C9F1DC8CEA7007D5863 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D178CA21DC8CEA7007D5863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D178CA41DC8CEA7007D5863 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D2B1A8E1DC8E3A800DFFAD7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7D2B1A901DC8E3FF00DFFAD7 /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 				7D178CA11DC8CEA7007D5863 /* LaunchScreen.storyboard */,
 				7D178CA41DC8CEA7007D5863 /* Info.plist */,
 				7D178C9C1DC8CEA7007D5863 /* LiveWeatherApp.xcdatamodeld */,
+				7D2B1A8E1DC8E3A800DFFAD7 /* Constants.swift */,
+				7D2B1A901DC8E3FF00DFFAD7 /* CurrentWeather.swift */,
 			);
 			path = LiveWeatherApp;
 			sourceTree = "<group>";
@@ -215,8 +221,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D178C981DC8CEA7007D5863 /* WeatherVC.swift in Sources */,
+				7D2B1A911DC8E3FF00DFFAD7 /* CurrentWeather.swift in Sources */,
 				7D178C961DC8CEA7007D5863 /* AppDelegate.swift in Sources */,
 				7D178C9E1DC8CEA7007D5863 /* LiveWeatherApp.xcdatamodeld in Sources */,
+				7D2B1A8F1DC8E3A800DFFAD7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

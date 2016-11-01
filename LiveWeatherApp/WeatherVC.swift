@@ -8,7 +8,9 @@
 
 import UIKit
 import Alamofire
-class WeatherVC : UIViewController,UITableViewDelegate,UITableViewDataSource {
+import CoreLocation
+
+class WeatherVC : UIViewController,UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate {
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -16,6 +18,9 @@ class WeatherVC : UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var currentWeatherImage: UIImageView!
     @IBOutlet weak var currentWeatherLabel: UILabel!
+
+    var locationManager = CLLocationManager()
+    var currentLocation:CLLocation!
     
     var currentWeather : CurrentWeather!
 //    var forecast : Forecast!
@@ -24,19 +29,46 @@ class WeatherVC : UIViewController,UITableViewDelegate,UITableViewDataSource {
     override func viewDidLoad() {
        super.viewDidLoad()
 
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startMonitoringSignificantLocationChanges()
+        
         tableView.dataSource = self
         tableView.delegate = self
         
-        currentWeather = CurrentWeather()
-        currentWeather.downloadWeatherDetails {
-            self.downloadForeCastData {
-                self.updateMainUI()
-            }
-            
-        }
         
 //        forecast = Forecast()
         
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        locationAuthStatus()
+        
+    }
+    
+    func locationAuthStatus(){
+    
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse{
+            currentLocation = locationManager.location!
+            Location.sharedInstance.latitude = currentLocation.coordinate.latitude
+            Location.sharedInstance.longitude = currentLocation.coordinate.longitude
+            
+            currentWeather = CurrentWeather()
+            currentWeather.downloadWeatherDetails {
+                self.downloadForeCastData {
+                    self.updateMainUI()
+                }
+                
+            }
+
+            
+        }else{
+            locationManager.requestWhenInUseAuthorization()
+            locationAuthStatus()
+        }
         
     }
 

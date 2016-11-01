@@ -79,7 +79,7 @@ class CurrentWeather{
                     }
                 }
                 
-                print("\(self._cityName!) \(self._weatherType!) \(self._currentTemp!)")
+//                print("\(self._cityName!) \(self._weatherType!) \(self._currentTemp!)")
                 
             }
             completed()
